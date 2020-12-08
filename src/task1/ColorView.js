@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './ColorView.css';
-import './components/ColorForm';
 import ColorForm from './components/ColorForm';
 import { isHexColor } from './utils/utils';
 

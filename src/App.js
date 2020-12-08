@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ColorView from './task1/ColorView';
+import Walks from './task2/Walks';
 
 
 function App() {
@@ -9,10 +10,7 @@ function App() {
       <ColorView /> 
     </div>
     <div className="task-2">
-      <ColorView /> 
-    </div>
-    <div className="task-3">
-      <ColorView /> 
+      <Walks /> 
     </div>
   </React.Fragment>);
 }
