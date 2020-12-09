@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import './WalkList.css';
 import WalkModel from '../models/WalkModel';
 
@@ -17,9 +18,9 @@ function WalkList(props) {
         </tbody>
       </table>
       <table className="WalkList-body">
-        {walks.map(({ id, date, distance }) => 
-          <tbody>
-            <tr>
+        <tbody>
+          {walks.map(({ id, date, distance }) => 
+            <tr key={nanoid()}>
               <td className="WalkList-body-cell WalkList-col1">{date}</td>
               <td className="WalkList-body-cell WalkList-col2">{distance}</td>
               <td className="WalkList-body-cell WalkList-col3">
@@ -28,8 +29,8 @@ function WalkList(props) {
                 <span className="WalkList-button WalkList-delete" data-id={id}>&#x2718;</span>
               </td>
             </tr>
-          </tbody>
-        )}
+          )}
+        </tbody>
       </table>
     </div>
   );
