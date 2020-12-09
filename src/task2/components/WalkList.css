@@ -1,0 +1,48 @@
+.WalkList {
+  width: 100%;
+}
+
+.WalkList table {
+  width: 100%;
+}
+
+.WalkList td {
+  text-align: center;
+}
+
+.WalkList-header-cell {
+  padding: 1.5em 0;
+}
+
+.WalkList-col1 {
+  width: 35%;
+}
+
+.WalkList-col2 {
+  width: 43%;
+}
+
+.WalkList-col3 {
+  width: 22%;
+}
+
+.WalkList-body {
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.WalkList-body-cell {
+  padding: 0.7em 0;
+}
+
+.WalkList-button:hover {
+  cursor: default;
+}
+
+.WalkList-button:hover {
+  color: orange;
+}
+
+.WalkList-delete {
+  color: #aa0000;
+}

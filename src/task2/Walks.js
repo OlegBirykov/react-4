@@ -2,18 +2,19 @@ import { useState } from 'react';
 import './Walks.css';
 import WalkAddForm from './components/WalkAddForm';
 import WalkList from './components/WalkList';
+import WalkModel from './models/WalkModel';
 
 function Walks() {
-  const [walks, setWalks] = useState([]);
-  const [form, setForm] = useState({ init: true, date: 0, distance: 0 });
+  const [walks, setWalks] = useState([new WalkModel(null, 0, 0), new WalkModel(null, 123, 123132), new WalkModel(null, 123, 12312),]);
+  const [form, setForm] = useState(new WalkModel(null, 0, 0));
 
-  const onWalkAddFormSubmit = ({ init, date, distance }) => {
-    setForm({ init, date, distance });
+  const addWalk = ({ id, date, distance }) => {
+    setForm(new WalkModel(id, date, distance));
   }
 
   return (
     <div className="Walks">
-      <WalkAddForm form={form} onSubmit={onWalkAddFormSubmit} />
+      <WalkAddForm form={form} onSubmit={addWalk} />
       <WalkList walks={walks} />
     </div>
   );

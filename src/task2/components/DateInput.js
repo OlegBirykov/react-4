@@ -3,12 +3,17 @@ import './DateInput.css';
 
 function DateInput(props) {
   const { value, onChange } = props;
-  return <input className="DateInput" name="date" value={value} onChange={(event) => onChange(event.target.value)} />
+  return (
+    <label className="DateInput">
+      Дата (ДД.ММ.ГГ)
+      <input className="DateInput-input" name="date" value={value} onChange={(event) => onChange(event.target.value)} />
+    </label>
+  );
 }
 
-//ColorInput.propTypes = {
-//  input: PropTypes.string.isRequired,
-//  onChange: PropTypes.func.isRequired
-//};
+DateInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+};
 
 export default DateInput;
