@@ -10,6 +10,7 @@ function Walks() {
 
   const addWalk = ({ id, date, distance }) => {
     setForm(new WalkModel(id, date, distance));
+    setWalks((prev) => prev);
   }
 
   return (
