@@ -1,44 +1,90 @@
-/*function hexEncode(rgb) {
-  let r = rgb.r.toString(16);
-  if (r.length < 2) {
-    r = '0' + r;
-  }
+import moment from 'moment';
 
-  let g = rgb.g.toString(16);
-  if (g.length < 2) {
-    g = '0' + g;
-  }
-  let b = rgb.b.toString(16);
-  if (b.length < 2) {
-    b = '0' + b;
-  }
-
-  return `#${r}${g}${b}`;
+export function dateToText(timestamp) {
+  return timestamp ? moment(timestamp).format('DD.MM.YYYY') : ''; 
 }
 
-function hexDecode(color){
-  const result = {};
-  result.r = parseInt(color.slice(1, 3), 16);
-  result.g = parseInt(color.slice(3, 5), 16);
-  result.b = parseInt(color.slice(5), 16);
+export function distanceToText(distance) {
+  return distance ? distance.toFixed(1) : '';
+}
+
+export function dateTyping(prev, value) {
+  if (prev.length < value.length) {
+    if (!/\d$/.test(value) || value.length > 10) {
+      return value.slice(0, value.length - 1);
+    } 
+
+    if (value.length === 2) {
+      return value + '.';
+    }
+
+    if (value.length === 3) {
+      return value.slice(0, value.length - 1) + '.' + value[value.length - 1];
+    }
+
+    if (value.length === 5) {
+      return value + '.20';
+    } 
+
+    if (value.length === 6) {
+      return value.slice(0, value.length - 1) + '.20' + value[value.length - 1];
+    }
+  } 
+
+  if (prev.length > value.length) {
+    if (value.length === 3) {
+      return value.slice(0, value.length - 1);       
+    }
+    if (value.length === 8) {
+      return value.slice(0, value.length - 3);       
+    }
+  }
+
+  return value;
+}
+
+
+export function distanceTyping(prev, value) {
+  if (prev.length < value.length) {
+    if (!/\d$/.test(value) || value.length > 4) {
+      return value.slice(0, value.length - 1);
+    } 
+
+    if (value.length === 2) {
+      return value + '.';
+    } 
+
+    if (value.length === 3) {
+      return value.slice(0, value.length - 1) + '.' + value[value.length - 1];
+    }
+  } 
+
+  if (prev.length > value.length) {
+    if (value.length === 3) {
+      return value.slice(0, value.length - 1);       
+    }
+  }
+
+  return value;
+}
+
+export function dateToInt(str) {
+  if (!moment(str, 'DD.MM.YYYY').isValid()) {
+    return null;
+  }
+  return moment(str, 'DD.MM.YYYY').unix();
+}
+
+export function distanceToInt(str) {
+  let result = Number.parseFloat(str);
+  if(isNaN(result)) {
+    return null;
+  }
+
+  result = +result.toFixed(1);
+  if ((result < 0) || (result > 99.9)) {
+    result = null;
+  }
+
   return result;
 }
-
-export function hexToRGB(color) {
-  const rgb = hexDecode(color);
-  return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`; 
-}
-
-export function isHexColor(color) {
-  return /^#[\dA-Fa-f]{6}$/.test(color);
-}
-
-export function getContrastColor(color) {
-  const rgb = hexDecode(color);
-  
-  rgb.r = Math.trunc(rgb.r / 2);
-  rgb.g = Math.trunc(rgb.g / 2);
-  rgb.b = Math.trunc(rgb.b / 2);
-
-  return hexEncode(rgb);
-}*/

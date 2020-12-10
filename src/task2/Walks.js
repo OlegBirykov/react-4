@@ -4,12 +4,15 @@ import WalkAddForm from './components/WalkAddForm';
 import WalkList from './components/WalkList';
 import WalkModel from './models/WalkModel';
 
+const initForm = new WalkModel(null, null, null);
+
 function Walks() {
-  const [walks, setWalks] = useState([new WalkModel(null, 0, 0), new WalkModel(null, 123, 123132), new WalkModel(null, 123, 12312),]);
-  const [form, setForm] = useState(new WalkModel(null, 0, 0));
+  const [walks, setWalks] = useState([]);
+  const [form, setForm] = useState(initForm);
 
   const addWalk = ({ id, date, distance }) => {
-    setForm(new WalkModel(id, date, distance));
+    console.log(id, date, distance);
+    setForm(new WalkModel(initForm));
     setWalks((prev) => prev);
   }
 

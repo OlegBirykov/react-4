@@ -5,13 +5,13 @@ import WalkModel from '../models/WalkModel';
 
 function WalkList(props) {
   const {walks} = props;
-
-  return (
+  
+  return !!walks.length && (
     <div className="WalkList">
       <table>
         <tbody>
           <tr>
-            <td className="WalkList-header-cell WalkList-col1">Дата (ДД.ММ.ГГ)</td>
+            <td className="WalkList-header-cell WalkList-col1">Дата (ДД.ММ.ГГГГ)</td>
             <td className="WalkList-header-cell WalkList-col2">Пройдено км</td>
             <td className="WalkList-header-cell WalkList-col3">Действия</td>
           </tr>
@@ -32,7 +32,7 @@ function WalkList(props) {
           )}
         </tbody>
       </table>
-    </div>
+    </div>  
   );
 }
 

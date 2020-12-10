@@ -29,3 +29,8 @@
 .WalkAddForm-button:hover {
   background-color: orange;
 }
+
+.WalkAddForm-error {
+  margin: 0.5em 1em;
+  color: red;
+}
