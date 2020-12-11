@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.WalkList-header-cell {
+.WalkList-cell {
   padding: 1.5em 0;
 }
 
@@ -29,20 +29,4 @@
 .WalkList-body {
   border: 1px solid black;
   border-radius: 30px;
-}
-
-.WalkList-body-cell {
-  padding: 0.7em 0;
-}
-
-.WalkList-button:hover {
-  cursor: default;
-}
-
-.WalkList-button:hover {
-  color: orange;
-}
-
-.WalkList-delete {
-  color: #aa0000;
 }

@@ -7,3 +7,5 @@ class WalkModel {
 }
 
 export default WalkModel;
+
+export const initForm = new WalkModel(null, null, null);

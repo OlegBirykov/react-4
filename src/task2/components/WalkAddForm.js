@@ -19,7 +19,7 @@ function WalkAddForm(props) {
   if (!busy) {
     setBusy(true);
     setDateText(dateToText(date));
-    setDistanceText(distanceToText(distance));
+    setDistanceText(distanceToText(distance, true));
   }
 
   const onDateChange = (value) => {
@@ -48,7 +48,7 @@ function WalkAddForm(props) {
     setError('');
     setBusy(false);
 
-    onSubmit({ id, date, distance});
+    onSubmit({ id, date, distance });
   }
 
   return (<React.Fragment>
