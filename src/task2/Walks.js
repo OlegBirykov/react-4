@@ -41,7 +41,8 @@ function Walks() {
   }
 
   const deleteWalk = (id) => {
-    const index = findById(walks, id);    
+    const index = findById(walks, id); 
+    setForm(initForm);   
     setWalks((prev) => {
       const arr = [...prev];
       arr.splice(index, 1);

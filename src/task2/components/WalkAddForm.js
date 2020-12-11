@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './WalkAddForm.css';
 import DateInput from './DateInput';
 import DistanceInput from './DistanceInput';
-import WalkModel from '../models/WalkModel';
+import WalkModel, { initForm } from '../models/WalkModel';
 import { dateToText, distanceToText, dateTyping, distanceTyping, dateToInt, distanceToInt } from '../utils/utils';
 
 function WalkAddForm(props) {
@@ -13,11 +13,11 @@ function WalkAddForm(props) {
 
   const [dateText, setDateText] = useState('');
   const [distanceText, setDistanceText] = useState('');
-  const [busy, setBusy] = useState(false);
+  const [prevState, setPrevState] = useState(initForm);
   const [error, setError] = useState('');
 
-  if (!busy) {
-    setBusy(true);
+  if ((id !== prevState.id) || (date !== prevState.date) || (distance !== prevState.distance)) {
+    setPrevState(new WalkModel(id, date, distance));
     setDateText(dateToText(date));
     setDistanceText(distanceToText(distance, true));
   }
@@ -46,7 +46,7 @@ function WalkAddForm(props) {
     }
 
     setError('');
-    setBusy(false);
+    setPrevState(new WalkModel(id, date, distance));
 
     onSubmit({ id, date, distance });
   }
